@@ -4,35 +4,30 @@ import ReactDom from 'react-dom'
 //CSS
 import './index.css';
 
+//setup vars
+const Libro ={
+  img: "https://m.media-amazon.com/images/I/91zzQmzB2-L._AC_UL320_.jpg",
+  title: 'Sherlock Holmes',
+  author: 'Sir Arthur Conan Doyle'
+}
 
 function BookList(){
-  return (
+
+  return  (
     <section className="booklist">
-      
-      <Book></Book>
-      <Book></Book>
-      <Book></Book>
-      <Book></Book>
-      <Book></Book>
-      <Book></Book>
+      <Book img={Libro.img} title={Libro.title} author={Libro.author}/>
     </section>
   );
 }
 
-const Book = () => {
+const Book = (props) => {
   return (
     <article className="book"> 
-      <Imagen/>
-      <Titulo/>
-      <Autor/>
+      <img src={props.img}alt="img-slk"/>
+      <h1>{props.title}</h1>
+      <h5 className="author">{props.author.toUpperCase()}</h5>
     </article>
   );
 }
 
-const Titulo = () => <h1>Sherlock holmes</h1>;
-const Imagen = () =>{
-  return(<img src="https://m.media-amazon.com/images/I/91zzQmzB2-L._AC_UL320_.jpg" alt="img-slk"/>);
-} 
-const Autor = () => <h5 style={{color:'#617d98',fontSize:'0.75rem', marginTop:'.25rem'}}>Sir Arthur Conan Doyle</h5>;
-
-ReactDom.render(<BookList/>,document.getElementById('root'));
+ReactDom.render(<BookList/>,document.getElementById('root'));    
