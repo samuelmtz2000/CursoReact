@@ -19,13 +19,14 @@ function BookList(){
     </section>
   );
 }
-
-const Book = (props) => {
+//Decontruring 2 opciones, dentro de las propiedades o como una variable
+const Book = ({img, title, author}) => {
+  //const {img, title, author} = props;
   return (
     <article className="book"> 
-      <img src={props.img}alt="img-slk"/>
-      <h1>{props.title}</h1>
-      <h5 className="author">{props.author.toUpperCase()}</h5>
+      <img src={img}alt="img-slk"/>
+      <h1>{title}</h1>
+      <h5 className="author">{author.toUpperCase()}</h5>
     </article>
   );
 }
